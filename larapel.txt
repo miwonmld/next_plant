@@ -1,0 +1,53 @@
+
+composer create-project --prefer-dist laravel/laravel next_plant
+cd next_plant
+
+## edit .env setting DB
+
+php artisan key:generate 
+php artisan migrate
+
+##helper code untuk laravel (extensi laravel-ide-helper)
+composer require --dev barryvdh/laravel-ide-helper
+
+composer require filament/filament:"^3.2" -W
+
+php artisan filament:install --panels
+php artisan make:filament-user
+
+##SHIELD
+
+composer require bezhansalleh/filament-shield
+
+php artisan vendor:publish --tag="filament-shield-config"
+##DI model user
+		use Spatie\Permission\Traits\HasRoles;
+		 
+		class User extends Authenticatable
+		{
+			use HasRoles;
+		}
+
+php artisan shield:setup
+yes
+
+##DI model AdminPanelProvider.php
+
+		->plugins([
+			\BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+		])
+
+##harusnya keluar menu baru Role
+##sisakan 1 user utuk super admin setting tambahkan dulu kalo gabisa sign manual pake tinker (chatgpt) atau fambah ini di userresouce
+				Select::make('roles')
+                    ->relationship('roles', 'name') // Mengambil roles dari relasi dengan model Role
+                    ->multiple() // Jika Anda ingin memilih lebih dari satu role
+                    ->preload() // Untuk memuat data dengan cepat
+                    ->required()
+                    ->label('Roles')
+                    ->options(function () {
+                        return \Spatie\Permission\Models\Role::all()->pluck('name', 'id'); // Menampilkan daftar roles
+                    }),
+					
+
+php artisan shield:generate --all
