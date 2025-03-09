@@ -17,8 +17,17 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)
+## Install**
+- composer install
+- composer require laravel/octane
+- php artisan octane:install
 
-## Contributing
 
+
+
+- php artisan config:cache
+- php artisan migrate --force
+- composer install --no-dev --optimize-autoloader
+
+
+- docker-compose up -d --build
