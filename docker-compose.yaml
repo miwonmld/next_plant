@@ -1,0 +1,13 @@
+services:
+  franken:
+    container_name: franken
+    build: .
+    # restart: always
+    volumes:
+      - ./laravel:/app
+    ports:
+      - "81:80"
+#      - "443:443"
+#      - "443:443/udp"
+#    tty: true
+
