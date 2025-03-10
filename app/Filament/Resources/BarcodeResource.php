@@ -78,7 +78,7 @@ class BarcodeResource extends Resource
             ])
             ->filters([])
             ->actions([
-                EditAction::make()->modal(),
+                EditAction::make(),
                 DeleteAction::make(),
             ])
             ->bulkActions([]);

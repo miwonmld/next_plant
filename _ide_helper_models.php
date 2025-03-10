@@ -16,6 +16,33 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $action
+ * @property string $model_type
+ * @property int $model_id
+ * @property array<array-key, mixed>|null $changes
+ * @property string|null $reason
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereAction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereChanges($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereUpdatedAt($value)
+ */
+	class ActivityLog extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
