@@ -4,7 +4,7 @@ services:
     build: .
     # restart: always
     volumes:
-      - ./laravel:/app
+      - ./:/app
     ports:
       - "81:80"
 #      - "443:443"
